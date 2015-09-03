@@ -23,7 +23,7 @@ def scrape_classes():
     #    c.print_all()
     pickle.dump(schedule, open('courses.p','w'))
 
-#scrape_classes()
+scrape_classes()
 schedule = get_classes()
 
 """

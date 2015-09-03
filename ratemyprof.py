@@ -60,40 +60,5 @@ def main():
     for t in teachers:
         print t
 
-
-
-
-
-
-
-
-
-def fucking_around():
-    search = "mary pape"
-    query = ""
-    tokenized = search.split()
-    for token in tokenized:
-        query += "+" + token
-    url = "http://www.ratemyprofessors.com/search.jsp?query=de+anza" + query
-
-    page = requests.get(url).content
-    soup = BeautifulSoup(page)
-    professors = []
-    for link in soup.findAll('a', href=re.compile('/ShowRatings.jsp?')):
-        """
-        #print link.get('href')
-        for sub in link.find("span",{"class":"sub"}):
-            print sub
-        """
-        professors.append(link.get('href'))
-
-    for idx, professor in enumerate(professors):
-        professors[idx] = "www.ratemyprofessors.com" + professor
-
-    print professors
-
-
-
-
 if __name__ == "__main__":
     main()
